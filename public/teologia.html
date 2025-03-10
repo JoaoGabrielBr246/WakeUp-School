@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teologia</title>
+    <link rel="stylesheet" href="estilos/teologia.css">
+    <link rel="icon" href="images/raio.svg" type="image/svg+xml">
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <a href="index.html"><img src="images/raio.svg" alt="Logo" class="logo__image"></a>
+            <span class="logo__text">WAKE UP SCHOOL</span>
+        </div>
+        <nav class="navbar">
+            <ul>
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="devocionais.html">DEVOCIONAIS</a></li>
+                <li><a href="estudos-tematicos.html">ESTUDOS TEMÁTICOS</a></li>
+                <li><a href="teologia.html">TEOLOGIA</a></li>
+                <li><a href="aboutme.html">SOBRE MIM</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1 class="main__h1">Teologia</h1>
+        <h2 class="main__h2">Selecione abaixo o que deseja ler</h2>
+        <ul id="teologia-list"></ul>
+    </main>
+
+    <!-- Modal -->
+    <div id="teologiaModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeTeologiaModal">&times;</span>
+            <h2 class="modal-title" id="modalTitle"></h2>
+            <h3 class="modal-subtitle" id="modalSubtitle"></h3>
+            <div class="modal-body" id="modalContent"></div>
+        </div>
+    </div>
+    
+    <footer class="footer">
+        <div class="footer__logo">
+            <img src="images/raio.svg" alt="Logo" class="footer__logo-image">
+        </div>
+        <div class="footer__info">
+            <p>&copy; 2024 Wake Up School. Todos os direitos reservados.</p>
+        </div>
+        <div class="footer__social">
+            <a href="mailto:wakeupschool.despertar@gmail.com" class="footer__social-item">
+                <img src="images/email-logo.svg" alt="Email" class="footer__social-icon">
+               
+            </a>
+            <a href="https://www.instagram.com/camilesilva_29" target="_blank" class="footer__social-item">
+                <img src="images/insta-logo.svg" alt="Instagram" class="footer__social-icon-insta">
+            </a>
+        </div>
+    </footer>
+
+    <script src="/public/scripts/teologia.js">
+       
+    </script>
+</body>
+</html>

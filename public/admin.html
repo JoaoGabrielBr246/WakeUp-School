@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar Post</title>
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+    <link rel="icon" href="images/raio.svg" type="image/svg+xml">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            display: none;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 50px;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            font-size: 16px;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        #editor {
+            height: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Criar Novo Post</h1>
+
+    <form id="postForm">
+        <label for="titulo">Título</label>
+        <input type="text" id="titulo" name="titulo" required>
+
+        <label for="subtitulo">Subtítulo</label>
+        <input type="text" id="subtitulo" name="subtitulo" required>
+
+        <label for="topico">Tópico</label>
+        <select id="topico" name="topico" required>
+            <option value="DEVOCIONAIS">Devocionais</option>
+            <option value="ESTUDOS TEMÁTICOS">Estudos Temáticos</option>
+            <option value="TEOLOGIA">Teologia</option>
+        </select>
+
+        <label for="conteudo">Conteúdo</label>
+        <div id="editor"></div>
+        <input type="hidden" id="conteudo" name="conteudo" required>
+
+        <button type="submit">Criar Post</button>
+    </form>
+
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+    <script>
+        (async function () {
+            const senhaDigitada = prompt("Digite a senha para acessar:");
+
+            const response = await fetch("http://localhost:3000/api/verificar-senha", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ senhaDigitada })
+            });
+
+            const data = await response.json();
+
+            if (data.autorizado) {
+                document.body.style.display = "block";
+            } else {
+                alert("Senha incorreta! Você não pode acessar esta página.");
+                document.body.innerHTML = "";
+            }
+        })();
+    </script>
+
+    <script>
+        const form = document.getElementById('postForm');
+
+        const quill = new Quill('#editor', {
+            theme: 'snow',
+            modules: {
+                toolbar: [
+                    [{ 'font': [] }],
+                    [{ 'header': [1, 2, false] }],
+                    [{ 'size': ['small', false, 'large', 'huge'] }],
+                    [{ 'color': ['#000000', '#ff0000', '#00ff00', '#0000ff', '#ffff00', '#ff00ff', '#00ffff', '#620B61'] }],
+                    ['bold', 'italic', 'underline'],
+                    [{ 'background': [] }],
+                    ['link', 'image'],
+                    [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+                    ['clean']
+                ]
+            }
+        });
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const post = {
+                titulo: form.titulo.value,
+                subtitulo: form.subtitulo.value,
+                topico: form.topico.value,
+                conteudo: quill.root.innerHTML
+            };
+
+            try {
+                const response = await fetch('http://localhost:3000/api/posts', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(post)
+                });
+
+                if (response.ok) {
+                    alert('Post criado com sucesso!');
+                    form.reset();
+                    quill.setContents([]);
+                } else {
+                    const errorData = await response.json();
+                    alert(`Erro ao criar post: ${errorData.error}`);
+                }
+            } catch (error) {
+                alert('Erro ao conectar ao servidor.');
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,249 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+@font-face {
+  font-family: 'Gliker-bold';
+  src: url('/public/fonts/Gliker-BoldSemiExpanded.ttf') format('truetype');
+  font-weight: bold;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  color: #333;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.header {
+  background-color: transparent;
+  color: #333;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo__image {
+  width: 30px;
+  margin-right: 10px;
+}
+
+.logo__text {
+  font-family: 'Gliker-bold', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.navbar {
+  flex-grow: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  font-size: 15px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  padding: 0;
+}
+
+.navbar ul li {
+  margin: 0 10px;
+}
+
+.navbar ul li a {
+  text-decoration: none;
+  color: #333;
+  transition: color 0.3s, transform 0.3s;
+  font-weight: 700;
+}
+
+.navbar ul li a:hover {
+  color: #AA6BAC;
+  transform: scale(1.1);
+}
+
+.page {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: auto;
+  background-color: #fff;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.page__about_me {
+  text-align: center;
+  font-size: 2.25rem;
+  margin-bottom: 2rem;
+  color: #333;
+  font-weight: 600;
+}
+
+.page__content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.page__img {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center 100%;
+  transform: scale(1.2);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+  border: 3px solid #AA6BAC;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.page__text {
+  flex: 1;
+  max-width: 600px;
+  margin-left: 15px;
+}
+
+.page__name {
+  font-size: 1.75rem;
+  color: #333;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.page__student {
+  font-size: 1.125rem;
+  margin-bottom: 1rem;
+  color: #555;
+}
+
+.page__text p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #555;
+  margin-top: 1rem;
+}
+
+.footer {
+  background-color: transparent;
+  color: #333;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  text-align: center;
+  gap: 0.5rem;
+}
+
+.footer__logo img {
+  width: 40px;
+}
+
+.footer__info p {
+  font-size: 0.8rem;
+  margin: 0;
+}
+
+.footer__social {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.3rem;
+}
+
+.footer__social-item {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #333;
+  font-size: 0.8rem;
+}
+
+.footer__social-icon {
+  width: 35px;
+  height: 35px;
+  transition: transform 0.2s;
+}
+
+.footer__social-icon-insta {
+    width: 40px;
+    height: 40px;
+    transition: transform 0.2s;
+}
+
+
+@media (max-width: 1000px) {
+  .header {
+    padding: 10px 15px;
+  }
+
+  .navbar ul {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+  }
+
+  .logo {
+    margin-bottom: 10px;
+  }
+
+  .navbar {
+    width: 100%;
+    justify-content: center;
+    margin-top: 10px;
+  }
+
+  .navbar ul {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .navbar ul li {
+    margin: 5px;
+  }
+
+  .navbar ul li:not(:last-child)::after {
+    content: "";
+  }
+
+  .page__img {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+@media (max-width: 450px) {
+  .navbar ul {
+    font-size: 12px;
+  }
+}

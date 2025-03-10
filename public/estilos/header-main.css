@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+@font-face {
+  font-family: 'Gliker-bold';
+  src: url('/fonts/Gliker-BoldSemiExpanded.ttf') format('truetype');
+  font-weight: bold;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  background-color: #E6E1F0;
+  align-items: center;
+  padding: 15px 20px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  transition: background-color 0.3s;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo__image {
+  width: 30px;
+  margin-right: 10px;
+}
+
+.logo__text {
+  font-family: 'Gliker-bold', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.navbar {
+  flex-grow: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  font-size: 15px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  padding: 0;
+}
+
+.navbar ul li {
+  margin: 0 10px;
+}
+
+.navbar ul li a {
+  text-decoration: none;
+  color: #333;
+  transition: color 0.3s, transform 0.3s;
+  font-weight: 700;
+}
+
+.navbar ul li a:hover {
+  color: #AA6BAC;
+  transform: scale(1.1);
+}
+
+@media (max-width: 1000px) {
+  .header {
+    padding: 10px 15px;
+  }
+
+  .navbar ul {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+  }
+
+  .logo {
+    margin-bottom: 10px;
+  }
+
+  .navbar {
+    width: 100%;
+    justify-content: center;
+    margin-top: 10px;
+  }
+
+  .navbar ul {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .navbar ul li {
+    margin: 5px;
+  }
+
+  .navbar ul li:not(:last-child)::after {
+    content: "";
+  }
+}
+
+@media (max-width: 450px) {
+  .navbar ul {
+    font-size: 12px;
+  }
+}

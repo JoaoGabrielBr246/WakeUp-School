@@ -1,0 +1,83 @@
+.footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 15px; /* Reduzido de 20px para 15px */
+    background-color: #f1f1f1;
+    width: 100%;
+    margin-top: auto; /* Garante que o footer fique no fim da página */
+}
+
+.footer__logo img {
+    height: 40px; /* Reduzido de 50px para 40px */
+    margin-bottom: 10px; /* Reduzido de 15px para 10px */
+}
+
+.footer__info p {
+    margin: 0;
+    font-size: 0.9rem; /* Reduzido de 1rem para 0.9rem */
+    color: #333;
+}
+
+.footer__social {
+    display: flex;
+    justify-content: center;
+    margin-top: 8px; /* Reduzido de 10px para 8px */
+    gap: 15px; /* Reduzido de 20px para 15px */
+}
+
+.footer__social-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: #333;
+    text-decoration: none; /* Remove sublinhado dos links */
+}
+
+.footer__social-item p {
+    margin-top: 4px; /* Reduzido de 5px para 4px */
+    font-size: 0.8rem; /* Reduzido de 0.9rem para 0.8rem */
+}
+
+.footer__social-icon, .footer__social-icon-insta {
+    transition: transform 0.2s;
+}
+
+.footer__social-icon {
+    width: 35px;
+    height: 35px;
+    transition: transform 0.2s;
+  }
+  
+  .footer__social-icon-insta {
+      width: 40px;
+      height: 40px;
+      transition: transform 0.2s;
+  }
+
+.footer__social-icon:hover, .footer__social-icon-insta:hover {
+    transform: scale(1.1); /* Aumenta o ícone ao passar o mouse */
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+    .footer__logo img {
+        height: 35px; /* Reduzido de 40px para 35px */
+    }
+
+    .footer__social {
+        gap: 8px; /* Reduzido de 10px para 8px */
+    }
+
+    .footer__social-icon {
+        width: 20px; /* Reduzido de 25px para 20px */
+        height: 20px; /* Reduzido de 25px para 20px */
+    }
+
+    .footer__social-icon-insta {
+        width: 35px; /* Reduzido de 40px para 35px */
+        height: 35px; /* Reduzido de 40px para 35px */
+    }
+}

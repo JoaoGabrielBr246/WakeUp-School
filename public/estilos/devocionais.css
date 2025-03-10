@@ -1,0 +1,310 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+@font-face {
+    font-family: 'Gliker-bold';
+    src: url('/public/fonts/Gliker-BoldSemiExpanded.ttf') format('truetype');
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: 'TextaMedium';
+    src: url('/public/fonts/Texta-Medium.ttf') format('truetype');
+    font-weight: bold;
+  }
+
+/* Reseta estilos padrão */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #ede7f6;
+    color: #333;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Header */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 10px 20px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo__image {
+    width: 30px;
+    margin-right: 10px;
+  }
+  
+  .logo__text {
+    font-family: 'Gliker-bold', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+
+.navbar {
+    flex-grow: 1;
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .navbar ul {
+    list-style: none;
+    display: flex;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    padding: 0;
+  }
+  
+  .navbar ul li {
+    margin: 0 10px;
+  }
+  
+  .navbar ul li a {
+    text-decoration: none;
+    color: #333;
+    transition: color 0.3s, transform 0.3s;
+    font-weight: 700;
+  }
+  
+  .navbar ul li a:hover {
+    color: #AA6BAC;
+    transform: scale(1.1);
+  }
+
+/* Main */
+main {
+    flex: 1;
+    padding: 10px;
+    max-width: 100%;
+    margin: auto;
+    text-align: center; /* Centraliza o texto */
+}
+
+.main__h1 {
+  font-family: 'Gliker-bold', sans-serif;
+  margin-bottom: 20px;
+  font-size: 2.8em;
+  text-transform: uppercase;
+}
+
+.main__h2 {
+  margin-bottom: 15px;
+  font-family: 'Gliker-bold', sans-serif;
+  font-size: 1.2em;
+}
+
+/* Lista de estudos temáticos */
+#devocionais-list {
+    list-style-type: none;
+    padding: 0;
+    display: flex; /* Alinha os itens em uma linha */
+    flex-direction: column; /* Coloca os itens em coluna */
+    align-items: center; /* Centraliza os itens horizontalmente */
+}
+
+#devocionais-list li {
+    padding: 8px;
+    border: 1px solid #a8a8a8;
+    font-family: 'TextaMedium', serif;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 80%; /* Define a largura dos itens da lista */
+}
+
+#devocionais-list li:hover {
+    background-color: rgba(170, 107, 172, 0.2);
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px; /* Mantém o padding do modal */
+    border-radius: 8px; /* Mantém o border-radius */
+    max-width: 90%; /* Ajusta a largura máxima */
+    max-height: 80%; /* Ajusta a altura máxima */
+    overflow-y: auto; /* Permite rolagem vertical se necessário */
+    
+}
+
+.modal-title {
+    font-family: 'Gliker-bold', sans-serif; /* Define a fonte do título */
+    font-size: 1.5em; /* Tamanho do título */
+    margin-bottom: 10px; /* Espaçamento abaixo do título */
+    text-align: center; /* Centraliza o texto dentro da modal */
+}
+
+.modal-subtitle {
+    font-family: 'Gliker-bold', sans-serif; /* Define a fonte do subtítulo */
+    font-size: 1.2em; /* Tamanho do subtítulo */
+    margin-bottom: 20px; /* Espaçamento abaixo do subtítulo */
+    text-align: center; /* Centraliza o texto dentro da modal */
+}
+
+.modal-body {
+    font-size: 1em; /* Tamanho do corpo do texto */
+    text-align: center; /* Justifica o texto do conteúdo */
+}
+
+/* Botão de fechar */
+.close {
+    color: #aaa; /* Cor do botão de fechar */
+    float: right; /* Alinha à direita */
+    font-size: 28px; /* Tamanho do botão */
+    font-weight: bold; /* Negrito */
+}
+
+.close:hover,
+.close:focus {
+    color: black; /* Cor ao passar o mouse */
+    text-decoration: none; /* Remove underline */
+    cursor: pointer; /* Cursor de ponteiro */
+}
+
+
+.post-content {
+    font-family: 'BetterTogether', sans-serif; /* Aplica a fonte personalizada */
+}
+/* Footer */
+.footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background-color: #f1f1f1;
+    width: 100%;
+}
+
+.footer__logo img {
+    height: 50px;
+    margin-bottom: 15px; /* Espaço abaixo do logo */
+}
+
+.footer__info p {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.footer__social {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    gap: 20px; /* Espaçamento entre os itens */
+}
+
+.footer__social-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: #333;
+}
+
+.footer__social-item p {
+    margin-top: 5px;
+    font-size: 0.9rem;
+}
+
+.footer__social-icon {
+  width: 35px;
+  height: 35px;
+  transition: transform 0.2s;
+}
+
+.footer__social-icon-insta {
+    width: 40px;
+    height: 40px;
+    transition: transform 0.2s;
+}
+
+.footer__social-icon:hover {
+    transform: scale(1.1);
+}
+
+@media (max-width: 1000px) {
+    .header {
+      padding: 10px 15px;
+    }
+  
+    .navbar ul {
+      font-size: 14px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .header {
+      flex-direction: column;
+      align-items: center;
+      padding: 15px;
+    }
+  
+    .logo {
+      margin-bottom: 10px;
+    }
+  
+    .navbar {
+      width: 100%;
+      justify-content: center;
+      margin-top: 10px;
+    }
+  
+    .navbar ul {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  
+    .navbar ul li {
+      margin: 5px;
+    }
+  
+    .navbar ul li:not(:last-child)::after {
+      content: "";
+    }
+
+    .main__h1 {
+      font-size: 2em;
+    }
+    
+    .main__h2 {
+      font-size: 1em;
+    }
+  }
+  
+  @media (max-width: 450px) {
+    .navbar ul {
+      font-size: 12px;
+    }
+  }
+  
