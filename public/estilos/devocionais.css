@@ -2,13 +2,13 @@
 
 @font-face {
     font-family: 'Gliker-bold';
-    src: url('/public/fonts/Gliker-BoldSemiExpanded.ttf') format('truetype');
+    src: url('fonts/Gliker-BoldSemiExpanded.ttf') format('truetype');
     font-weight: bold;
 }
 
 @font-face {
     font-family: 'TextaMedium';
-    src: url('/public/fonts/Texta-Medium.ttf') format('truetype');
+    src: url('fonts/Texta-Medium.ttf') format('truetype');
     font-weight: bold;
   }
 
@@ -132,29 +132,29 @@ main {
 }
 
 .modal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    background-color: rgba(0, 0, 0, 0.8);
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto; /* Mudei de 'hidden' para 'auto' para permitir rolagem se necessário */
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 20px 0; /* Adiciona espaçamento vertical */
 }
 
 .modal-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: white;
-    padding: 20px; /* Mantém o padding do modal */
-    border-radius: 8px; /* Mantém o border-radius */
-    max-width: 90%; /* Ajusta a largura máxima */
-    max-height: 80%; /* Ajusta a altura máxima */
-    overflow-y: auto; /* Permite rolagem vertical se necessário */
-    
+  position: relative;
+  background-color: white;
+  margin: auto; /* Centraliza horizontalmente */
+  padding: 20px;
+  border-radius: 8px;
+  width: 90%; /* Mais responsivo */
+  max-width: 600px;
+  max-height: 90vh; /* Limita a altura */
+  overflow-y: auto; /* Permite rolagem interna se o conteúdo for muito longo */
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
 
 .modal-title {
@@ -172,8 +172,13 @@ main {
 }
 
 .modal-body {
-    font-size: 1em; /* Tamanho do corpo do texto */
-    text-align: center; /* Justifica o texto do conteúdo */
+  white-space: pre-line;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  text-align: left;
+  padding: 10px 0; /* Espaçamento vertical interno */
+  line-height: 1.6; /* Melhora a legibilidade */
+  font-size: 1rem; /* Tamanho de fonte consistente */
 }
 
 /* Botão de fechar */

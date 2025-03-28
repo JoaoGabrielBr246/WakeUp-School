@@ -2,7 +2,7 @@
 
 @font-face {
   font-family: 'Gliker-bold';
-  src: url('/fonts/Gliker-BoldSemiExpanded.ttf') format('truetype');
+  src: url('Gliker-BoldSemiExpanded.ttf') format('truetype');
   font-weight: bold;
 }
 

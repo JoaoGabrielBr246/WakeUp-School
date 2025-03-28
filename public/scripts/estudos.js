@@ -1,18 +1,16 @@
- // Função para buscar os estudos temáticos do servidor
- async function fetchEstudosTematicos() {
+// Função para buscar os estudos temáticos do servidor
+async function fetchEstudosTematicos() {
     try {
         const response = await fetch('http://localhost:3000/api/posts/topico/ESTUDOS TEMÁTICOS');
         if (!response.ok) {
             throw new Error('Erro ao buscar os estudos temáticos: ' + response.statusText);
         }
         const estudosPosts = await response.json();
-
         const estudosList = document.getElementById('estudos-tematicos-list');
         estudosPosts.forEach(post => {
             const listItem = document.createElement('li');
             listItem.textContent = post.titulo;
-            // Adiciona um evento de clique ao título
-            listItem.addEventListener('click', () => openEstudosModal(post));
+            listItem.addEventListener('click', () => openModal(post));
             estudosList.appendChild(listItem);
         });
     } catch (error) {
@@ -20,25 +18,25 @@
     }
 }
 
-// Função para abrir o modal de Estudos Temáticos
-function openEstudosModal(post) {
-    document.getElementById('modalEstudosTitle').textContent = post.titulo;
-    document.getElementById('modalEstudosContent').innerHTML = post.conteudo; // Exibe o conteúdo
-    document.getElementById('estudosModal').style.display = 'block'; // Exibe o modal
+function openModal(data) {
+    document.getElementById("modalTitle").textContent = data.titulo;
+    document.getElementById("modalSubtitle").textContent = data.subtitulo || ''; // Subtítulo opcional
+    document.getElementById("modalContent").innerHTML = data.conteudo;
+    document.getElementById("estudosModal").style.display = "block";
 }
 
-// Função para fechar o modal
-document.getElementById('closeEstudosModal').onclick = function() {
-    document.getElementById('estudosModal').style.display = 'none'; // Oculta o modal
+// Fechar modal
+function closeModal() {
+    document.getElementById("estudosModal").style.display = "none";
 }
 
-// Fecha o modal ao clicar fora dele
+document.getElementById("closeModal").onclick = closeModal;
+
+// Fechar ao clicar fora
 window.onclick = function(event) {
-    const modal = document.getElementById('estudosModal');
-    if (event.target === modal) {
-        modal.style.display = 'none'; // Oculta o modal
+    if (event.target === document.getElementById('estudosModal')) {
+        closeModal();
     }
 }
 
-// Chama a função ao carregar a página
 document.addEventListener('DOMContentLoaded', fetchEstudosTematicos);

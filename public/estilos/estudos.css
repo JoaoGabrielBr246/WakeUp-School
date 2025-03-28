@@ -2,15 +2,15 @@
 
 @font-face {
     font-family: 'Gliker-bold';
-    src: url('/public/fonts/Gliker-BoldSemiExpanded.ttf') format('truetype');
+    src: url('fonts/Gliker-BoldSemiExpanded.ttf') format('truetype');
     font-weight: bold;
 }
 
 @font-face {
     font-family: 'TextaMedium';
-    src: url('/public/fonts/Texta-Medium.ttf') format('truetype');
+    src: url('fonts/Texta-Medium.ttf') format('truetype');
     font-weight: bold;
-  }
+}
 
 /* Reseta estilos padrão */
 * {
@@ -41,49 +41,49 @@ body {
 .logo {
     display: flex;
     align-items: center;
-  }
-  
-  .logo__image {
+}
+
+.logo__image {
     width: 30px;
     margin-right: 10px;
-  }
-  
-  .logo__text {
+}
+
+.logo__text {
     font-family: 'Gliker-bold', sans-serif;
     font-size: 1.25rem;
     font-weight: 600;
-  }
+}
 
 .navbar {
     flex-grow: 1;
     display: flex;
     justify-content: flex-end;
-  }
-  
-  .navbar ul {
+}
+
+.navbar ul {
     list-style: none;
     display: flex;
     font-size: 15px;
     letter-spacing: 0.5px;
     text-transform: uppercase;
     padding: 0;
-  }
-  
-  .navbar ul li {
+}
+
+.navbar ul li {
     margin: 0 10px;
-  }
-  
-  .navbar ul li a {
+}
+
+.navbar ul li a {
     text-decoration: none;
     color: #333;
     transition: color 0.3s, transform 0.3s;
     font-weight: 700;
-  }
-  
-  .navbar ul li a:hover {
+}
+
+.navbar ul li a:hover {
     color: #AA6BAC;
     transform: scale(1.1);
-  }
+}
 
 /* Main */
 main {
@@ -91,29 +91,29 @@ main {
     padding: 10px;
     max-width: 100%;
     margin: auto;
-    text-align: center; /* Centraliza o texto */
+    text-align: center;
 }
 
 .main__h1 {
-  font-family: 'Gliker-bold', sans-serif;
-  margin-bottom: 20px;
-  font-size: 2.8em;
-  text-transform: uppercase;
+    font-family: 'Gliker-bold', sans-serif;
+    margin-bottom: 20px;
+    font-size: 2.8em;
+    text-transform: uppercase;
 }
 
 .main__h2 {
-  margin-bottom: 15px;
-  font-family: 'Gliker-bold', sans-serif;
-  font-size: 1.2em;
+    margin-bottom: 15px;
+    font-family: 'Gliker-bold', sans-serif;
+    font-size: 1.2em;
 }
 
 /* Lista de estudos temáticos */
 #estudos-tematicos-list {
     list-style-type: none;
     padding: 0;
-    display: flex; /* Alinha os itens em uma linha */
-    flex-direction: column; /* Coloca os itens em coluna */
-    align-items: center; /* Centraliza os itens horizontalmente */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #estudos-tematicos-list li {
@@ -124,7 +124,7 @@ main {
     margin-bottom: 10px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    width: 80%; /* Define a largura dos itens da lista */
+    width: 80%;
 }
 
 #estudos-tematicos-list li:hover {
@@ -139,62 +139,67 @@ main {
     top: 0;
     width: 100%;
     height: 100%;
-    overflow: hidden;
+    overflow: auto;
     background-color: rgba(0, 0, 0, 0.8);
+    padding: 20px 0;
 }
 
 .modal-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    position: relative;
     background-color: white;
-    padding: 20px; /* Mantém o padding do modal */
-    border-radius: 8px; /* Mantém o border-radius */
-    max-width: 90%; /* Ajusta a largura máxima */
-    max-height: 80%; /* Ajusta a altura máxima */
-    overflow-y: auto; /* Permite rolagem vertical se necessário */
-    
+    margin: auto;
+    padding: 20px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 600px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
 
 .modal-title {
-    font-family: 'Gliker-bold', sans-serif; /* Define a fonte do título */
-    font-size: 1.5em; /* Tamanho do título */
-    margin-bottom: 10px; /* Espaçamento abaixo do título */
-    text-align: center; /* Centraliza o texto dentro da modal */
+    font-family: 'Gliker-bold', sans-serif;
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    text-align: center;
 }
 
 .modal-subtitle {
-    font-family: 'Gliker-bold', sans-serif; /* Define a fonte do subtítulo */
-    font-size: 1.2em; /* Tamanho do subtítulo */
-    margin-bottom: 20px; /* Espaçamento abaixo do subtítulo */
-    text-align: center; /* Centraliza o texto dentro da modal */
+    font-family: 'Gliker-bold', sans-serif;
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    text-align: center;
 }
 
 .modal-body {
-    font-size: 1em; /* Tamanho do corpo do texto */
-    text-align: center; /* Justifica o texto do conteúdo */
+    white-space: pre-line;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    text-align: left;
+    padding: 10px 0;
+    line-height: 1.6;
+    font-size: 1rem;
 }
 
 /* Botão de fechar */
 .close {
-    color: #aaa; /* Cor do botão de fechar */
-    float: right; /* Alinha à direita */
-    font-size: 28px; /* Tamanho do botão */
-    font-weight: bold; /* Negrito */
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
 }
 
 .close:hover,
 .close:focus {
-    color: black; /* Cor ao passar o mouse */
-    text-decoration: none; /* Remove underline */
-    cursor: pointer; /* Cursor de ponteiro */
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
 }
-
 
 .post-content {
-    font-family: 'BetterTogether', sans-serif; /* Aplica a fonte personalizada */
+    font-family: 'BetterTogether', sans-serif;
 }
+
 /* Footer */
 .footer {
     display: flex;
@@ -208,7 +213,7 @@ main {
 
 .footer__logo img {
     height: 50px;
-    margin-bottom: 15px; /* Espaço abaixo do logo */
+    margin-bottom: 15px;
 }
 
 .footer__info p {
@@ -220,7 +225,7 @@ main {
     display: flex;
     justify-content: center;
     margin-top: 10px;
-    gap: 20px; /* Espaçamento entre os itens */
+    gap: 20px;
 }
 
 .footer__social-item {
@@ -260,9 +265,9 @@ main {
     .navbar ul {
       font-size: 14px;
     }
-  }
-  
-  @media (max-width: 768px) {
+}
+
+@media (max-width: 768px) {
     .header {
       flex-direction: column;
       align-items: center;
@@ -292,7 +297,7 @@ main {
     .navbar ul li:not(:last-child)::after {
       content: "";
     }
-    
+
     .main__h1 {
       font-size: 2em;
     }
@@ -300,11 +305,10 @@ main {
     .main__h2 {
       font-size: 1em;
     }
-  }
-  
-  @media (max-width: 450px) {
+}
+
+@media (max-width: 450px) {
     .navbar ul {
       font-size: 12px;
     }
-  }
-  
+}
